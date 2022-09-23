@@ -1,0 +1,19 @@
+header.header
+	.section_in 
+		.header_main 
+			.header_logo 
+				a(href="#")
+					+pic({
+						img: 'i/global/logo',
+					})
+			.header_menu 
+				nav 
+					ul 
+						each item in ['о компании', 'состав комплекта', 'стоимость', 'портфолио', 'контакты']
+							li 
+								a(href="#")=item 
+			.header_phone 
+				a(href="#")
+					.header_phone_icon 
+						+icon('phone')
+					p +7 (985) 968-65-63

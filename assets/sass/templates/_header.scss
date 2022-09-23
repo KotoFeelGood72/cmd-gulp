@@ -1,0 +1,58 @@
+//------------------------------------------------------------layout
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: $header;
+	width: 100%;
+	will-change: transform;
+	@include z-index(header);
+	background-color: $white;
+}
+
+// Header main
+
+.header {
+}
+.section_in {
+}
+.header_main {
+	@include flex-space;
+	padding: 1rem 0;
+}
+.header_logo {
+	width: 19rem;
+	margin-right: 6.4rem;
+}
+.cover_img {
+}
+.header_menu {
+	margin-right: 5rem;
+	nav {
+		ul {
+			@include flex-start;
+			li {
+				&:not(:last-child) {
+					margin-right: 5rem;
+				}
+				a {
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+}
+.header_phone {
+	a {
+		@include flex-start;
+		font-family: $font_2;
+	}
+}
+.header_phone_icon {
+	margin-right: 1.3rem;
+	@include flex-center;
+}
+.icon {
+}
+.icon-phone {
+}

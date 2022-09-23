@@ -1,0 +1,104 @@
+.popup_form 
+	.popup_form_bg 
+	.popup_form_main 
+		.work_main_close
+			button 
+				+icon('close')
+		.popup_form_head 
+			h3 Форма заявки
+		.popup_form_form 
+			.popup_form_input 
+				input(type="text" placeholder="Ваше имя")
+			.popup_form_input 
+				input(type="text" placeholder="Ваш телефон")
+			.popup_form.check_input
+				input(type="checkbox", name="work" id="work")
+				label(for="work")!='Отправляя информацию, вы соглашаетесь c <a target="_blank" href="#">политикой конфиденциальности.</a>'
+			.popup_form_btn.btn_submit 
+				input(type="submit" value="Отправить")
+				.btn_icon_submit
+.work_popup 
+	.work_popup_bg 
+	.work_popup_main_w
+		.work_popup_close 
+			button 
+				+icon('close')
+		.work_popup_main 
+			.work_popup_title 
+				h3 Амфитеатр
+			.work_popup_body 
+				.work_popup_slider_w
+					.work_popup_nav.slider_nav
+						.work_left.btn_slider
+							button 
+								+icon('arr-left')
+						.work_right.btn_slider
+							button 
+								+icon('arr-right')
+					.work_popup_slider.swiper 
+						.swiper-wrapper
+							-for(i = 0; i < 11; i++)
+								.swiper-slide 
+									.work_popup_slide 
+										.work_popup_slide_img 
+											+pic({img: `i/work/work_${i}`})
+					.work_popup_slider_pug
+				.work_popup_content 
+					ul 
+						li Досугово-развлекательная зона. Концертный зал, амфитеатр.
+						li Габариты: 36х45 м.
+						li Высота: 27 м.
+						li Масса металлоконструкций: 320 т.
+					p Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+					p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+					p Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui.
+.burger
+	.burger_bg 
+	.burger_main
+		.burger_close 
+			button 
+				+icon('close') 
+		.burger_logo 
+			a(href="#")
+				+pic({
+					img: 'i/global/logo',
+				})
+		.burger_menu 
+			nav 
+				ul 
+					each item in ['о компании', 'состав комплекта', 'стоимость', 'портфолио', 'контакты']
+						li 
+							a(href="#")=item 
+		ul.contacts__info_list 
+			-
+				var contacts = [
+					{
+						link: '+7 (985) 968-65-63',
+						icon: 'phone'
+					},
+					{
+						link: 'info@steeldrawings.ru',
+						icon: 'mail'
+					},
+					{
+						txt: 'Краснодар, ул.Красная 25 д.1',
+						icon: 'map'
+					},
+				]
+			each item in contacts 
+				if item.link 
+					li.contacts_item 
+						a(href="#")
+							.contacts_item_icon 
+								+icon(item.icon)
+							p=item.link
+				else 
+					li.contacts_item 
+						.contacts_item_icon 
+							+icon(item.icon)
+						p=item.txt
+		ul.contacts_social_list 
+			each item in ['tg', 'wp']
+				li 
+					a(href="#")
+						+icon(item)

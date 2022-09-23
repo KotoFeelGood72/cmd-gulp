@@ -1,0 +1,212 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
+block content_block
+	section.hero
+		.hero_bg 
+			+pic({img: 'i/hero_bg'}) 
+		.section_in 
+			.hero_main
+				.hero_slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 6; i++) 
+							.swiper-slide
+								.hero_slide
+									.hero_title 
+										h1 Профессиональная разработка чертежей кмд
+									.hero_btn.btn_white 
+										button 
+											p Оставить заявку
+											.btn_icons
+				.hero_slider_pug.pug_global 
+	section.about 
+		.section_in 
+			.about_main 
+				.about_slider_w
+					.slider_nav.about_slider_nav
+						.about_left.btn_slider
+							button 
+								+icon('arr-left')
+						.about_right.btn_slider
+							button 
+								+icon('arr-right') 
+					.about_slider.swiper 
+						.swiper-wrapper
+							-for(i = 0; i < 6; i++) 
+								.swiper-slide 
+									.about_slide 
+										.about_img 
+											+pic({
+												img: 'i/about'
+											})
+					.about_nav
+						.about_nav_left
+							.about_nav_scrollbar
+						.about_nav_right
+							.about_nav_fraction 
+				.about_content 
+					.about_content_title 
+						h2 О компании
+					.about_content_txt.default_block 
+						p Наша команда предоставляет услуги по разработке конструкторской документации стадии КМД (конструкции металлические деталировочные). 
+						p Мы создаем проекты 3D-модели в программе Tekla Structures, что позволяет получить готовые чертежи высокого качества и обеспечить точность последующего изготовления и сборки при монтаже.
+					.about_btn.btn_dark 
+						a(href="#")  
+							p к портфолио
+							.btn_icons
+	section.service 
+		.section_in 
+			.service_main_w 
+				.service_title 
+					h2 в нашем портфолио:
+				.service_main
+					ul.service_grid 
+						-for(i = 0; i < 8; i++)
+							- var serviceTitle = ['Многоярусные гараж-стоянки, парковки, навесы для авто техники, автомойки', 'Производственные цеха, конвейеры', 'Складские комплексы, ангары, навесы открытого типа', 'ЛЭП, вышки связи', 'Школы, детские сады, физкультурно-оздоровительные комплексы, культурные центры', 'Эстакады ТЭЦ, АЭС, НПЗ', 'Здания залов ожидания аэропортов и железнодорожных вокзалов', '  Элеваторы сельскохозяйственной продукции']
+								li.service_item 
+									.service_item_img 
+										+pic({
+											img: `i/service_${i}`
+										})
+									.service_item_title 
+										p=serviceTitle[i]
+	section.structure 
+		.section_in 
+			.structure_main 
+				.structure_head 
+					h3 Состав комплекта КМД
+					.structure_head_txt 
+						p Альбом передается в формате PDF, при необходимости дополнительно в формате DWG. В готовых чертежах КМД будет включен следующий перечень документации:
+				ul.structure_list 
+					-for(i = 0; i < 3; i++)
+						- var structureTitle = ['Титульный лист -', 'Лист общих данных -', 'Ведомость отправочных марок -']
+							li.structure_item 
+								.structure_item_content 
+									h4=structureTitle[i]
+									.strcuture_item_txt 
+										p краткая информация о заказчике и исполнителе и данные об объекте: название, назначение, адрес.
+								.structure_item_img 
+									a(href=`i/global/str_${i}`) 
+										+pic({
+											img: `i/global/str_${i}`
+										})
+				.structure_btn_more.btn_more 
+					button 
+						p Показать больше
+						.btn_icons
+	section.action
+		.action_bg 
+			+pic({
+				img: 'i/global/action_bg'
+			})
+		.section_in 
+			.action_main 
+				.action_title 
+					h3 Есть вопросы? Оставьте заявку!
+				.action_form_w 
+					.action_form
+						.action_form_group
+							.action_input 
+								input(type="text" placeholder="Ваше имя")
+							.action_input 
+								input(type="tel" placeholder="Ваш телефон")
+							.action_input_btn.btn_submit 
+								input(type="submit" value="Отправить")
+								.btn_icon_submit
+						.action_check.check_input
+							input(type="checkbox", name="action" id="check")
+							label(for="check")!='Отправляя информацию, вы соглашаетесь c <a target="_blank" href="#">политикой конфиденциальности.</a>'
+	section.price 
+		.section_in 
+			.price_main 
+				.price_head 
+					.price_title 
+						h4 Стоимость разработки КМД
+					.price_head_txt 
+						p Стоимость разработки КМД расчитывается для каждого проекта индивидуально и зависит от следующих факторов:
+				ul.price_list 
+					each item in ['От сложности проекта;', 'От качества и полноты исходной документации;', 'От массы проекта;', 'От требований к оформлению;']
+						li.price_item 
+							.price_item_icon
+								+icon('check')
+							.price_item_txt 
+								p=item
+				.price_item_bottom 
+					p После получения и анализа исходных данных для проектирования мы вышлем Вам коммерческое предложение, в котором будет указана стоимость разработки КМД и сроки. Анализ проекта занимает в среднем 2 часа.
+	section.work 
+		.section_in 
+			.work_main_w 
+				.work_main_head 
+					h5 Наше портфолио
+					ul.work_link_list 
+						li.work_link_item
+							a(href="#") Примеры 3D-моделей
+						li.work_link_item
+							a(href="#") Примеры чертежей
+				.work_main_grid 
+					ul.work_grid 
+						li.work_grid_tab 
+							ul.work_grid_list
+								-for(i = 0; i < 12; i++) 
+									li.work_grid_items
+										article 
+												.work_items_img
+													a(href="#") 
+														+pic({
+															img: `i/work/work_${i}`
+														})
+												.work_items_title
+													a(href="#")  
+														h5 Складской комплекс
+														.work_item_icon
+	section.contacts 
+		.section_in 
+			.contacts_main_w 
+				.contacts_title 
+					h6 Наши контакты
+				.contacts_main 
+					.contacts_info 
+						ul.contacts__info_list 
+							-
+								var contacts = [
+									{
+										link: '+7 (985) 968-65-63',
+										icon: 'phone'
+									},
+									{
+										link: 'info@steeldrawings.ru',
+										icon: 'mail'
+									},
+									{
+										txt: 'Краснодар, ул.Красная 25 д.1',
+										icon: 'map'
+									},
+								]
+							each item in contacts 
+								if item.link 
+									li.contacts_item 
+										a(href="#")
+											.contacts_item_icon 
+												+icon(item.icon)
+											p=item.link
+								else 
+									li.contacts_item 
+										.contacts_item_icon 
+											+icon(item.icon)
+										p=item.txt
+						ul.contacts_social_list 
+							each item in ['tg', 'wp']
+								li 
+									a(href="#")
+										+icon(item)
+						.contacts_btn.white_btn 
+							button
+								p Обратный звонок
+								.btn_icons
+					.contacts_map 
+						#map(style="width: 100%; height: 100%;")
+						 
+
+
+
