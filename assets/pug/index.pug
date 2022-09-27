@@ -16,7 +16,7 @@ block content_block
 									.hero_title 
 										h1 Профессиональная разработка чертежей кмд
 									.hero_btn.btn_white 
-										button 
+										button.btn_trigger 
 											p Оставить заявку
 											.btn_icons
 				.hero_slider_pug.pug_global 
@@ -87,7 +87,7 @@ block content_block
 									.strcuture_item_txt 
 										p краткая информация о заказчике и исполнителе и данные об объекте: название, назначение, адрес.
 								.structure_item_img 
-									a(href=`i/global/str_${i}`) 
+									a(href=`i/global/str_${i}.jpg` data-fancybox) 
 										+pic({
 											img: `i/global/str_${i}`
 										})
@@ -112,10 +112,11 @@ block content_block
 							.action_input 
 								input(type="tel" placeholder="Ваш телефон")
 							.action_input_btn.btn_submit 
-								input(type="submit" value="Отправить")
-								.btn_icon_submit
+								button 
+									p Отправить
+									.btn_icons
 						.action_check.check_input
-							input(type="checkbox", name="action" id="check")
+							input(type="checkbox", name="action" id="check" checked)
 							label(for="check")!='Отправляя информацию, вы соглашаетесь c <a target="_blank" href="#">политикой конфиденциальности.</a>'
 	section.price 
 		.section_in 
@@ -126,7 +127,7 @@ block content_block
 					.price_head_txt 
 						p Стоимость разработки КМД расчитывается для каждого проекта индивидуально и зависит от следующих факторов:
 				ul.price_list 
-					each item in ['От сложности проекта;', 'От качества и полноты исходной документации;', 'От массы проекта;', 'От требований к оформлению;']
+					each item in ['От сложности проекта;', 'От массы проекта;', 'От качества и полноты исходной документации;', 'От требований к оформлению;']
 						li.price_item 
 							.price_item_icon
 								+icon('check')
@@ -140,25 +141,39 @@ block content_block
 				.work_main_head 
 					h5 Наше портфолио
 					ul.work_link_list 
-						li.work_link_item
+						li.work_link_item(data-tab="model" class="active")
 							a(href="#") Примеры 3D-моделей
-						li.work_link_item
+						li.work_link_item(data-tab="exed")
 							a(href="#") Примеры чертежей
 				.work_main_grid 
 					ul.work_grid 
-						li.work_grid_tab 
+						li.work_grid_tab(data-tab="model" class="active") 
 							ul.work_grid_list
 								-for(i = 0; i < 12; i++) 
 									li.work_grid_items
 										article 
 												.work_items_img
-													a(href="#") 
+													a(href="#").work_trigger 
 														+pic({
 															img: `i/work/work_${i}`
 														})
 												.work_items_title
-													a(href="#")  
+													a(href="#").work_trigger  
 														h5 Складской комплекс
+														.work_item_icon
+						li.work_grid_tab(data-tab="exed") 
+							ul.work_grid_list
+								-for(i = 0; i < 12; i++) 
+									li.work_grid_items
+										article 
+												.work_items_img
+													a(href="#").work_trigger 
+														+pic({
+															img: `i/work/work_${i}`
+														})
+												.work_items_title
+													a(href="#").work_trigger  
+														h5 Пример чертежа
 														.work_item_icon
 	section.contacts 
 		.section_in 
@@ -201,11 +216,11 @@ block content_block
 									a(href="#")
 										+icon(item)
 						.contacts_btn.white_btn 
-							button
+							button.btn_trigger
 								p Обратный звонок
 								.btn_icons
 					.contacts_map 
-						#map(style="width: 100%; height: 100%;")
+						#map
 						 
 
 

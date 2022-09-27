@@ -1,46 +1,190 @@
 .popup_form {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@include z-index(popup);
+	@include flex-center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	@include bp($point_2) {
+		padding: 2rem 1rem; 
+	}
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 .popup_form_bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $blue;
+	opacity: .5;
 }
 .popup_form_main {
+	position: relative;
+	background-color: $white;
+	padding: 5.6rem 7.9rem 4.5rem 7.8rem;
+	max-width: 55.8rem;
+	@include bp($point_2) {
+		max-width: 100%;
+		padding: 5rem 2rem;
+		overflow: auto;
+		max-height: 95%;
+	}
 }
 .work_main_close {
+	position: absolute;
+	top: 2.5rem;
+	right: 2.5rem;
+	button {
+		color: #CE0000;
+		width: 2.2rem;
+		height: 2.3rem;
+		@include flex-center;
+	}
 }
 .icon {
 }
 .icon-close {
 }
 .popup_form_head {
+	margin-bottom: 4rem;
+	text-align: center;
 }
 .popup_form_form {
 }
 .popup_form_input {
+	margin-bottom: 1.5rem;
+	input {
+		@include inputs;
+		background-color: rgba(29, 51, 65, 0.13);
+		min-width: 100%;
+	}
+}
+
+.popup_form_check  {
+	margin-top: 0.5rem;
+	display: inline-flex;
+	margin-bottom: 4rem;
+	& label:before {
+		background-color: rgba(29, 51, 65, 0.13)!important;
+		top: 0!important;
+		transform: translateY(0%)!important;
+	}
+	a {
+		color: $dark!important;
+		border-bottom: .1rem solid $dark!important;
+	}
 }
 .check_input {
 }
 .popup_form_btn {
+	button {
+		background-color: $blue!important;
+		width: 100%;
+		p {
+			color: $white;
+		}
+		.btn_icons {
+			background-image: url("../../i/global/btn_white.svg");
+			right: 13rem!important;
+		}
+	}
 }
 .btn_submit {
 }
 .btn_icon_submit {
 }
 .work_popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@include z-index(popup);
+	@include flex-center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	padding: 2rem;
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 .work_popup_bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $blue;
+	opacity: .5;
 }
 .work_popup_main_w {
+	position: relative;
+	@include bp($point_2) {
+		max-width: 100%;
+	}
 }
 .work_popup_close {
+	position: absolute;
+	top: 2.5rem;
+	right: 2.5rem;
+	z-index: 2;
+	button {
+		color: #CE0000;
+		width: 2.2rem;
+		height: 2.3rem;
+		@include flex-center;
+	}
 }
 .work_popup_main {
+	max-width: 132rem;
+	max-height: 96vh;
+	overflow-y: auto;
 }
 .work_popup_title {
+	h3 {
+		text-transform: none;
+		font-size: 3rem;
+	}
+	// margin-bottom: 5rem;
+	@include bp($point_2) {
+		margin-bottom: 3rem;
+	}
 }
-.work_popup_body {
+.work_popup_main {
+	background-color: $white;
+	position: relative;
+	padding: 6.7rem 9.2rem 7rem 9.2rem;
+	@include bp($point_2) {
+		padding: 3rem 1rem;
+	}
 }
 .work_popup_slider_w {
+	max-width: 100%;
+	position: relative;
+	margin-bottom: 4rem;
+	padding: 6.5rem 0 5.5rem 0;
+	@include bp($point_2) {
+		padding: 0 0 2rem 0;
+	}
 }
 .work_popup_nav {
+	position: absolute;
+	top: 0!important;
+	right: 0!important;
+	left: auto!important;
+	@include bp($point_2) {
+		display: none!important;
+	}
 }
 .slider_nav {
 }
@@ -55,6 +199,11 @@
 .icon-arr-right {
 }
 .work_popup_slider {
+	height: 23.5rem;
+	@include bp($point_2) {
+		// max-height: 17rem;
+		height: 100%;
+	}
 }
 .swiper {
 }
@@ -63,26 +212,158 @@
 .swiper-slide {
 }
 .work_popup_slide {
+	border: .1rem solid rgba(29, 51, 65, 0.15);
 }
 .work_popup_slide_img {
+	width: 100%;
+	@include bp($point_2) {
+		height: 100%;
+	}
+	img {
+		@include bp($point_2) {
+			max-height: 17rem;
+		}
+	}
 }
 .cover_img {
 }
-.work_popup_slider_pug {
-}
+
 .work_popup_content {
+	max-height: 35.7rem;
+	overflow-y: auto;
+	padding-right: 5rem;
+	p, ul, ol span {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+	ul {
+		padding-left: 2rem;
+		li {
+			list-style-type: disc;
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+	}
 }
+
+.work_popup_main, 
+.work_popup_content
+ {
+	&::-webkit-scrollbar {
+		width: .5rem;               /* ширина scrollbar */
+	}
+ }
+.work_popup_main, 
+.work_popup_content
+ {
+	&::-webkit-scrollbar-track {
+		background: #1d334121;        /* цвет дорожки */
+	}
+ }
+.work_popup_main, 
+.work_popup_content {
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $blue;    /* цвет плашки */
+		border-radius: 20px;       /* закругления плашки */
+		border: .3rem solid #1d334121;  /* padding вокруг плашки */
+	}
+}
+
+
 .burger {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@include z-index(popup);
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease;
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		.burger_main {
+			transform: translate(0);
+		}
+	}
 }
 .burger_bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $blue;
+	opacity: .5;
 }
 .burger_main {
+	position: relative;
+	background-color: $white;
+	padding: 3rem 2rem;
+	width: 80%;
+	height: 100%;
+	overflow: auto;
+	max-height: 100%;
+	transition: all .3s ease;
+	transform: translateX(-100%);
 }
 .burger_close {
+	position: absolute;
+	top: 4.7rem;
+	right: 2.5rem;
+	z-index: 3;
+	button {
+		color: #CE0000;
+		width: 2.2rem;
+		height: 2.3rem;
+		@include flex-center;
+	}
 }
+
 .burger_logo {
+	margin-bottom: 3rem;
+	width: 100%;
 }
 .burger_menu {
+	margin-bottom: 5rem;
+	li {
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+			border-bottom: .1rem solid #1d334121;
+			padding-bottom: 1rem;
+		}
+		a {
+			font-size: 1.6rem;
+			text-transform: uppercase;
+			color: $blue;
+			font-family: $font_3;
+			opacity: .7;
+			position: relative;
+			overflow: hidden;
+			transition: all .3s ease;
+			&:focus, &.active {
+				padding-left: 3rem;
+				opacity: 1;
+				&:before {
+					transform: translateY(-50%) translateX(0%);
+				}
+			}
+			&:before {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%) translateX(-100%);
+				width: 2rem;
+				border-bottom: .2rem solid $blue;
+				content: '';
+				transition: all .3s ease;
+			}
+		}
+	}
 }
 .contacts__info_list {
 }

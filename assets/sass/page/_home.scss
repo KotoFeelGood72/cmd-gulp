@@ -20,6 +20,10 @@
 	position: relative;
 	color: $white;
 	margin-bottom: 17rem;
+	@include bp($point_2) {
+		padding: 12rem 0 14rem 0;
+		margin-bottom: 8rem;
+	}
 }
 .hero_slider {
 }
@@ -35,6 +39,9 @@
 	max-width: 69.2rem;
 	@include beforeLine;
 	padding: 2rem 0 6rem 0;
+	@include bp($point_2) {
+		padding: 2rem 0 4rem 0;
+	}
 }
 .hero_btn {
 }
@@ -52,6 +59,9 @@
 		position: relative;
 		&:not(:last-child) {
 			margin-right: 3rem!important;
+			@include bp($point_2) {
+				margin-right: 2rem!important;
+			}
 		}
 		&:before {
 			position: absolute;
@@ -82,11 +92,19 @@
 	@include flex-start;
 	align-items: flex-start;
 	margin-bottom: 13rem;
+	@include bp($point_2) {
+		flex-wrap: wrap;
+		margin-bottom: 8rem;
+	}
 }
 .about_slider_w {
 	margin-right: 6.6rem;
 	max-width: 62.9rem;
 	position: relative;
+	@include bp($point_2) {
+		max-width: 100%;
+		margin: 0 0 4rem 0;
+	}
 }
 .slider_nav {
 	position: absolute;
@@ -170,6 +188,9 @@
 }
 .service_title {
 	margin-bottom: 7rem;
+	@include bp($point_2) {
+		margin-bottom: 4rem;
+	}
 }
 .service_main {
 }
@@ -178,29 +199,66 @@
 	grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
 	grid-gap: 7.7rem 5.3rem;
 	margin-bottom: 18.1rem;
+	@include bp($point_2) {
+		margin-bottom: 10rem;
+	}
+	@include bp($point_6) {
+		grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+		grid-gap: 2rem;
+		margin-bottom: 8rem;
+	}
 }
 .service_item {
 	text-align: center;
+	position: relative;
+	@include bp($point_4) {
+		border: .1rem solid #D1D1D1;
+		padding: 1rem;
+		overflow: hidden;
+	}
 }
 .service_item_img {
 	width: 9.2rem;
 	max-height: 8.2rem;
 	margin: 0 auto 3rem auto;
 	@include flex-center;
+	@include bp($point_4) {
+		position: absolute;
+		width: 100%;
+		@include z-index(el);
+		opacity: .1;
+		margin-bottom: 0;
+		max-height: 100%;
+	}
 	img {
 		object-fit: contain;
+		@include bp($point_2) {
+			object-fit: cover;
+		}
 	}
 }
 .service_item_title {
+	p {
+		@include bp($point_4) {
+			text-align: left;
+			font-size: 1.6rem;
+		}
+	}
 }
 .structure {
 }
 .structure_main {
 	margin-bottom: 14rem;
+	@include bp($point_2) {
+		margin-bottom: 8rem;
+	}
 }
 .structure_head {
 	max-width: 70.9rem;
 	margin-bottom: 11rem;
+	@include bp($point_2) {
+		margin-bottom: 4rem;
+	}
 	h3 {
 		margin-bottom: 2rem;
 	}
@@ -217,6 +275,9 @@
 	padding-bottom: 6rem;
 	position: relative;
 	margin-bottom: 5rem;
+	@include bp($point_4) {
+		flex-direction: column;
+	}
 	&:after {
 		content: '';
 		position: absolute;
@@ -235,6 +296,11 @@
 	max-width: 76.2rem;
 	position: relative;
 	padding-left: 8.2rem;
+	@include bp($point_2) {
+		margin-right: 0;
+		margin-bottom: 3rem;
+		padding-left: 5.5rem;
+	}
 	&:before {
 		position: absolute;
 		width: 5.9rem;
@@ -246,12 +312,21 @@
 		border-radius: 100%;
 		font-size: 2.2rem;
 		font-family: $font_2;
+		@include bp($point_2) {
+			width: 4rem;
+			height: 4rem;
+			font-size: 1.8rem;
+		}
 	}
 
 	h4 {
 		font-size: 3rem;
 		text-transform: none;
 		margin-bottom: 1.5rem;
+		@include bp($point_2) {
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+		}
 	}
 }
 .strcuture_item_txt {
@@ -259,6 +334,9 @@
 .structure_item_img {
 	width: 44.7rem;
 	@include flex-center;
+	@include bp($point_2) {
+		width: 100%;
+	}
 }
 .structure_btn_more {
 	.btn_icons {
@@ -298,12 +376,20 @@
 	position: relative;
 	color: $white;
 	padding: 12.4rem 0 10rem 0;
+	margin-bottom: 14rem;
+	@include bp($point_2) {
+		padding: 10rem 0;
+		margin-bottom: 8rem;
+	}
 }
 .action_title {
 	@include beforeLine;
 	padding-top: 2rem;
 	max-width: 45rem;
 	margin-bottom: 6rem;
+	@include bp($point_2) {
+		margin-bottom: 4rem;
+	}
 }
 .action_form_w {
 }
@@ -312,13 +398,22 @@
 .action_form_group {
 	@include flex-start;
 	flex-wrap: wrap;
+	margin-bottom: 2.5rem;
 }
 .action_input {
 	&:nth-child(1) {
 		margin-right: 2rem;
+		@include bp($point_2) {
+			width: 100%;
+			margin: 0 0 1rem 0;
+		}
 	}
 	&:nth-child(2) {
 		margin-right: 4rem;
+		@include bp($point_2) {
+			margin: 0 0 3rem 0;
+			width: 100%;
+		}
 	}
 	input {
 		@include inputs;
@@ -328,33 +423,80 @@
 .action_input_btn {
 }
 .btn_submit {
+	@include actionWhite;
+	@include bp($point_4) {
+		width: 100%;
+	}
+	button {
+		padding: 2.3rem 12.5rem 2.4rem 10.4rem;
+		@include bp($point_4) {
+			padding: 2rem 5rem;
+			width: 100%;
+		}
+		.btn_icons {
+			right: 10.2rem;
+		}
+	}
 }
 .btn_icon_submit {
 }
 .action_check {
 }
 .check_input {
+	@include check;
 }
 .price {
 }
 .price_main {
+	margin-bottom: 14rem;
+	@include bp($point_2) {
+		margin-bottom: 8rem;
+	}
 }
 .price_head {
+	margin-bottom: 7rem;
+	@include bp($point_2) {
+		margin-bottom: 4rem;
+	}
 }
 .price_title {
+	margin-bottom: 2rem;
 }
 .price_head_txt {
 }
 .price_list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+	grid-gap: 4rem 10%;
+	margin-bottom: 9rem;
+	max-width: 120rem;
+	@include bp($point_2) {
+		max-width: 100%;
+		grid-gap: 2rem;
+		grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+		margin-bottom: 4rem;
+	}
 }
 .price_item {
+	@include flex-start;
 }
 .price_item_icon {
+	width: 5.9rem;
+	height: 5.9rem;
+	@include flex-center;
+	background-color: rgba(29, 51, 65, 0.1);
+	border-radius: 100%;
+	margin-right: 2.5rem;
+	@include bp($point_2) {
+		width: 4rem;
+		height: 4rem;
+		margin-right: 1rem;
+		padding: 1.3rem;
+	}
 }
 .icon-check {
 }
-.price_item_txt {
-}
+
 .price_item_bottom {
 }
 .work {
@@ -362,42 +504,230 @@
 .work_main_w {
 }
 .work_main_head {
+	margin-bottom: 7rem;
+	@include bp($point_2) {
+		margin-bottom: 4rem;
+	}
+	h5 {
+		margin-bottom: 6rem;
+		@include bp($point_2) {
+			margin-bottom: 4rem;
+		}
+	}
 }
 .work_link_list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+	grid-gap: 2rem;
+	@include bp($point_2) {
+		grid-gap: 1%;
+	}
+	@include bp($point_8) {
+		grid-gap: 1rem;
+	}
+	li {
+		border: .1rem solid #1D334180;
+		transition: all .3s ease;
+		&.active {
+			a {
+				background-color: $blue;
+				color: $white;
+			}
+		}
+		a {
+			padding: 2.3rem;
+			text-transform: uppercase;
+			font-family: $font_3;
+			@include flex-center;
+			width: 100%;
+			height: 100%;
+			transition: all .3s ease;
+			@include bp($point_2) {
+				font-size: 1.2rem;
+				padding: 2rem 1rem;
+				width: auto;
+			}
+		}
+	}
 }
 .work_link_item {
 }
 .work_main_grid {
 }
 .work_grid {
+	li {
+		
+	}
 }
 .work_grid_tab {
+	display: none;
+		&.active {
+			display: block;
+		}
 }
 .work_grid_list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+	grid-gap: 2.6rem;
+	margin-bottom: 13rem;
+	@include bp($point_2) {
+		margin-bottom: 8rem;
+		grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+		grid-gap: 1rem;
+	}
+	li {
+		overflow: hidden;
+		padding: 2rem;
+		transition: all .3s ease;
+		position: relative;
+		@include bp($point_2) {
+			padding: 1rem;
+			overflow: visible;
+			border: .1rem solid #d1d1d1;
+		}
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			border-left: .1rem solid $blue;
+			transform: translateY(-100%);
+			transition: all .5s ease;
+			pointer-events: none;
+			@include bp($point_2) {
+				display: none;
+			}
+		}
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: '';
+			border-right: .1rem solid $blue;
+			transform: translateY(100%);
+			transition: all .5s ease;
+			pointer-events: none;
+			@include bp($point_2) {
+				display: none;
+			}
+		}
+		&:hover {
+			&:before {
+				transform: translateY(0%);
+			}
+			&:after {
+				transform: translateY(0%);
+			}
+		}
+	}
 }
 .work_grid_items {
 }
 .work_items_img {
+	margin-bottom: 2rem;
+	height: 26.6rem;
+	@include bp($point_6) {
+		height: 10rem;
+		margin-bottom: 1rem;
+		width: 100%;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: all 1s ease;
+	}
 }
 .work_items_title {
+	@include flex-start;
+	position: relative;
+	display: inline-flex;
+	&:hover {
+		.work_item_icon {
+			transform: translateX(1rem);
+		}
+	}
+	h5 {
+		font-size: 1.8rem;
+		margin-right: 2rem;
+		@include bp($point_6) {
+			font-size: 1.2rem;
+			margin-right: 0;
+		}
+	}
+	a {
+		align-items: center;
+	}
 }
 .work_item_icon {
+	position: relative;
+	background-image: url('../../i/global/btn.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 1rem;
+	height: 1.6rem;
+	transition: all .3s ease;
+	@include flex-center;
+	@include bp($point_6) {
+		display: none;
+	}
 }
 .contacts {
 }
 .contacts_main_w {
 }
 .contacts_title {
+	margin-bottom: 6rem;
+	@include bp($point_2) {
+		margin-bottom: 4rem;
+	}
 }
 .contacts_main {
+	@include flex-space;
+	align-items: flex-start;
+	margin-bottom: 13.5rem;
+	@include bp($point_2) {
+		flex-direction: column;
+		margin-bottom: 8rem;
+	}
 }
 .contacts_info {
+	margin-right: 22.3rem;
+	@include bp($point_2) {
+		margin: 0 0 3rem 0;
+		width: 100%;
+	}
 }
 .contacts__info_list {
+	margin-bottom: 6rem;
+	@include bp($point_2) {
+		margin-bottom: 3rem;
+		width: 100%
+	}
+	li {
+		@include flex-start;
+		a {
+			@include flex-start;
+		}
+		&:not(:last-child) {
+			margin-bottom: 2.8rem;
+			@include bp($point_2) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
 }
 .contacts_item {
 }
 .contacts_item_icon {
+	margin-right: 1.9rem;
+	@include flex-center;
+	width: 2.3rem;
 }
 .icon-phone {
 }
@@ -406,14 +736,60 @@
 .icon-map {
 }
 .contacts_social_list {
+	@include flex-start;
+	margin-bottom: 8rem;
+	@include bp($point_2) {
+		margin-bottom: 5rem;
+	}
+	li {
+		width: 2.5rem;
+		a {
+			@include flex-center;
+			width: 100%;
+			height: 100%;
+			transition: all .3s ease;
+			&:hover {
+				transform: scale(1.1) rotate(10deg);
+			}
+		}
+		&:nth-child(1) {
+			margin-right: 3.5rem;
+			a {
+				color: #0087C0;
+			}
+		}
+		&:nth-child(2) {
+			a {
+				color: #039300;
+			}
+		}
+	}
 }
 .icon-tg {
 }
 .icon-wp {
 }
 .contacts_btn {
+	@include actionWhite;
+	button {
+		border: .1rem solid $dark;
+		// padding: 2.3rem 9rem 2.3rem 6.8rem;
+		// .btn_icons {
+		// 	right: 6.7rem;
+		// }
+	}
 }
 .white_btn {
 }
 .contacts_map {
+	width: 100%;
+	max-width: 76.2rem;
+	height: 100%;
+	@include bp($point_2) {
+		max-width: 100%;
+	}
+	#map {
+		height: 36rem;
+		width: 100%;
+	}
 }

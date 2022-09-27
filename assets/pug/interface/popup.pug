@@ -1,7 +1,7 @@
 .popup_form 
-	.popup_form_bg 
+	.popup_form_bg.popup_closer 
 	.popup_form_main 
-		.work_main_close
+		.work_main_close.popup_closer
 			button 
 				+icon('close')
 		.popup_form_head 
@@ -11,16 +11,17 @@
 				input(type="text" placeholder="Ваше имя")
 			.popup_form_input 
 				input(type="text" placeholder="Ваш телефон")
-			.popup_form.check_input
-				input(type="checkbox", name="work" id="work")
+			.popup_form_check.check_input
+				input(type="checkbox", name="work" id="work" checked)
 				label(for="work")!='Отправляя информацию, вы соглашаетесь c <a target="_blank" href="#">политикой конфиденциальности.</a>'
 			.popup_form_btn.btn_submit 
-				input(type="submit" value="Отправить")
-				.btn_icon_submit
+				button 
+					p Отправить
+					.btn_icons
 .work_popup 
-	.work_popup_bg 
+	.work_popup_bg.work_closer 
 	.work_popup_main_w
-		.work_popup_close 
+		.work_popup_close.work_closer 
 			button 
 				+icon('close')
 		.work_popup_main 
@@ -42,7 +43,7 @@
 									.work_popup_slide 
 										.work_popup_slide_img 
 											+pic({img: `i/work/work_${i}`})
-					.work_popup_slider_pug
+					.work_popup_slider_pug.pug_global
 				.work_popup_content 
 					ul 
 						li Досугово-развлекательная зона. Концертный зал, амфитеатр.
@@ -53,9 +54,9 @@
 					p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 					p Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui.
 .burger
-	.burger_bg 
+	.burger_bg.burger_closer 
 	.burger_main
-		.burger_close 
+		.burger_close.burger_closer 
 			button 
 				+icon('close') 
 		.burger_logo 

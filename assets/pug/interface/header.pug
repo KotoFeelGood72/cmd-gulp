@@ -5,15 +5,22 @@ header.header
 				a(href="#")
 					+pic({
 						img: 'i/global/logo',
+						media: 768, 
+						img_mob: 'i/global/logo_mobile'
 					})
 			.header_menu 
 				nav 
 					ul 
 						each item in ['о компании', 'состав комплекта', 'стоимость', 'портфолио', 'контакты']
 							li 
-								a(href="#")=item 
+								a(href="#")
+									.nav_item_bg
+									p=item
 			.header_phone 
 				a(href="#")
 					.header_phone_icon 
 						+icon('phone')
 					p +7 (985) 968-65-63
+			ul.header_burger
+				-for(i = 0; i < 3; i++) 
+					li.line_burger

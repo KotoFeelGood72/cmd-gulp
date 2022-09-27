@@ -23,11 +23,21 @@
 .header_logo {
 	width: 19rem;
 	margin-right: 6.4rem;
+	transition: all .3s ease;
+	@include bp($point_4) {
+		width: 8rem;
+	}
+	&:hover {
+		opacity: .6;
+	}
 }
 .cover_img {
 }
 .header_menu {
 	margin-right: 5rem;
+	@include bp($point_2) {
+		display: none;
+	}
 	nav {
 		ul {
 			@include flex-start;
@@ -36,13 +46,41 @@
 					margin-right: 5rem;
 				}
 				a {
+					position: relative;
 					text-transform: uppercase;
+					&.active {
+						.nav_item_bg {
+							transform: scaleX(100%);
+						}
+					}
+					p {
+						filter: invert(1);
+						mix-blend-mode: difference;
+						color: $black;
+						position: relative;
+						z-index: 2;
+					}
 				}
 			}
 		}
 	}
 }
+.nav_item_bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 65%;
+	height: 100%;
+	background-color: $black;
+	@include z-index(el);
+	transform: scale(0);
+	transition: all .3s ease;
+	transform-origin: left;
+}
 .header_phone {
+	@include bp($point_2) {
+		margin-right: 2rem;
+	}
 	a {
 		@include flex-start;
 		font-family: $font_2;
@@ -51,8 +89,37 @@
 .header_phone_icon {
 	margin-right: 1.3rem;
 	@include flex-center;
+	@include bp($point_4) {
+		display: none;
+	}
 }
-.icon {
-}
-.icon-phone {
+
+
+.header_burger {
+	display: none;
+	@include bp($point_2) {
+		display: block;
+		width: 2.5rem;
+		height: 2rem;
+		position: relative;
+	}
+	li {
+		width: 100%;
+		border-bottom: .2rem solid $blue;
+		position: absolute;
+		&:nth-child(1) {
+			top: 0;
+			left: 0;
+		}
+		&:nth-child(2) {
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			width: 75%;
+		}
+		&:nth-child(3) {
+			bottom: 0;
+			left: 0;
+		}
+	}
 }
