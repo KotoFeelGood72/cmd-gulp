@@ -141,13 +141,13 @@ block content_block
 				.work_main_head 
 					h5 Наше портфолио
 					ul.work_link_list 
-						li.work_link_item(data-tab="model" class="active")
+						li.work_link_item
 							a(href="#") Примеры 3D-моделей
-						li.work_link_item(data-tab="exed")
+						li.work_link_item
 							a(href="#") Примеры чертежей
 				.work_main_grid 
-					ul.work_grid 
-						li.work_grid_tab(data-tab="model" class="active") 
+					.work_grid 
+						.work_grid_tab 
 							ul.work_grid_list
 								-for(i = 0; i < 12; i++) 
 									li.work_grid_items
@@ -160,20 +160,6 @@ block content_block
 												.work_items_title
 													a(href="#").work_trigger  
 														h5 Складской комплекс
-														.work_item_icon
-						li.work_grid_tab(data-tab="exed") 
-							ul.work_grid_list
-								-for(i = 0; i < 12; i++) 
-									li.work_grid_items
-										article 
-												.work_items_img
-													a(href="#").work_trigger 
-														+pic({
-															img: `i/work/work_${i}`
-														})
-												.work_items_title
-													a(href="#").work_trigger  
-														h5 Пример чертежа
 														.work_item_icon
 	section.contacts 
 		.section_in 

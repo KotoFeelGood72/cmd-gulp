@@ -224,27 +224,32 @@ function popupFormCall() {
 }
 
 
-// tabs
-function tabs(link, block) {
-	let linkSelector = $(link),
-		blockSelector = $(block);
-
+tabs
+function tabs(link) {
+	let linkSelector = $(link)
 	$(linkSelector).on('click', function (e) {
 		e.preventDefault();
-
-		let $this = $(this),
-			currentData = $(this).data('tab');
-
-		$(blockSelector).removeClass('active');
+		let $this = $(this)
 		$(linkSelector).removeClass('active');
-
-		$(block + '[data-tab="' + currentData + '"]').addClass('active');
 		$this.addClass('active');
-
 	});
 }
 
-tabs('.work_link_item ', '.work_grid_tab');
+tabs('.work_link_item');
+
+$(document).ready(function() {
+
+	const linkItem = document.querySelectorAll('.work_link_item>a')
+	linkItem.forEach((el) => {
+		el.addEventListener('click', function(e) {
+			e.preventDefault();
+			activeEl =  el;
+			activeEl.classList.remove('active')
+			activeEl.classList.add('active')
+		})
+	})
+})
+
 
 function popupWork() {
 	const popupWorks = document.querySelector('.work_popup')

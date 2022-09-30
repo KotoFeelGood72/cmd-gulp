@@ -559,12 +559,7 @@
 		
 	}
 }
-.work_grid_tab {
-	display: none;
-		&.active {
-			display: block;
-		}
-}
+
 .work_grid_list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
