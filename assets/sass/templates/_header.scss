@@ -48,8 +48,21 @@
 				a {
 					position: relative;
 					text-transform: uppercase;
+					&:before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 65%;
+						height: 100%;
+						background-color: $black;
+						@include z-index(el);
+						transform: scale(0);
+						transition: all .3s ease;
+						transform-origin: left;
+						content: '';
+					}
 					&.active {
-						.nav_item_bg {
+						&:before {
 							transform: scaleX(100%);
 						}
 					}
@@ -65,18 +78,7 @@
 		}
 	}
 }
-.nav_item_bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 65%;
-	height: 100%;
-	background-color: $black;
-	@include z-index(el);
-	transform: scale(0);
-	transition: all .3s ease;
-	transform-origin: left;
-}
+
 .header_phone {
 	@include bp($point_2) {
 		margin-right: 2rem;
